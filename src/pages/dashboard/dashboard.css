@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+.dashboard {
+  padding: 20px;
+}
+
+.ant-row {
+  margin-bottom: 20px;
+}
+
+.spacing {
+  margin-right: 20px;
+}
+
+.ant-card-head {
+  background-color: #35baf6;
+  padding: .75em 1em;
+  border: 1px solid #35baf6;
+}
+
+.ant-card-head-title {
+  padding: 0;
+  color: #f0f0f0;
+}
+
+.ant-card-extra {
+  padding: 0;
+  color: #f0f0f0;
+  font-size: 1em;
+}
+
+.ant-card-body {
+  padding: 15px;
+}
+
+.ant-progress-line {
+  line-height: 3px;
+}
+
+.ant-progress-inner {
+  vertical-align: top;
+}
+
+.ant-progress-bg {
+  height: 3px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.peity {
+  vertical-align: top;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.small-widget .ant-card-body {
+  padding: 10px;
+}
+
+.weather-comps {
+  height: 82px;
+}
+
+.weather-image {
+  background-color: #82d9ea;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+}
+
+.weather-image i {
+  font-size: 50px;
+  color: #fff;
+  vertical-align: middle;
+}
+
+.weather-details {
+  background-color: #fff;
+  height: 80px;
+  padding: 15px 20px;
+  color: #458fd2;
+}
+
+.weather-details h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 30px;
+  color: #458fd2;
+  line-height: 30px;
+}
+
+.weather-details p {
+  margin: 0;
+  padding: 0;
+  line-height: 20px;
+}
+
+.ant-list-item {
+  padding: 5px 15px;
+}
+
+.ant-list-item-meta-title {
+  margin-bottom: 0;
+}
+
+.ant-list-item:nth-child(2n) {
+  background-color: #f6f6f6;
+}
+
+.ant-list-item:hover {
+  background-color: #e6f1f6;
+  border-color: #dbe5ea;
+}
+
+.ant-checkbox-wrapper {
+  display: block;
+}
+
+.ant-card-actions > li > span {
+  display: block;
+}
+
+.right {
+  float: right;
+}
+
+.legend-item {
+  line-height: 1;
+  margin-bottom: 1em;
+}
+
+.legend-item p {
+  margin-bottom: 0;
+}
+
+.finance .ant-progress-bg {
+  background-color: #ffc000;
+}
+
+.research .ant-progress-bg {
+  background-color: #6aa5db;
+}
+
+.marketing .ant-progress-bg {
+  background-color: #ee929c;
+}
+
+.services-text{
+  max-height: 6em;
+  overflow: hidden;
+}
+
+.square {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: .5em;
+  vertical-align: -2px;
+}
+
+.square.finance {
+  background-color: #ffc000;
+}
+
+.square.research {
+  background-color: #6aa5db;
+}
+
+.square.marketing {
+  background-color: #ee929c;
+}

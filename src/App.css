@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
+.gb-page-wrapper {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.gb-page-header {
+  flex-basis: 60px;
+  padding: 10px;
+}
+
+.gb-page-body {
+  flex: 1;
+}
