@@ -1,0 +1,35 @@
+.page-login,
+.page-register {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+  background-image: url(../../assets/images/lock-bg.webp);
+  background-size: cover;
+}
+
+.login-form {
+  width: 280px;
+  background-color: #fff;
+  padding: 20px;
+}
+
+.page-login .ant-input {
+  border-radius: 0;
+}
+
+.page-login .ant-btn {
+  border-radius: 0;
+  display: block;
+  width: 100%;
+}
+
+.page-login .form-title {
+  margin-top: -10px;
+  margin-bottom: 0;
+}
+
+.last-form-item {
+  margin-bottom: 10px;
+}

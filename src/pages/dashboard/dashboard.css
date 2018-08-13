@@ -118,7 +118,7 @@
   border-color: #dbe5ea;
 }
 
-.ant-checkbox-wrapper {
+.dashboard .ant-checkbox-wrapper {
   display: block;
 }
 
@@ -151,7 +151,7 @@
   background-color: #ee929c;
 }
 
-.services-text{
+.services-text {
   max-height: 6em;
   overflow: hidden;
 }

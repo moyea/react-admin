@@ -141,3 +141,65 @@ textarea.share-input-box {
 .ant-list-item.comment-item {
   background-color: #fff;
 }
+
+.timeline {
+  padding: 15px;
+  background-color: #fff;
+}
+
+.profile-pic-wrap {
+  width: 100px;
+  float: left;
+  font-size: 10px;
+  text-align: center;
+  position: relative;
+  background: #fff;
+  padding: 5px 0;
+}
+
+.line-wrap {
+  position: relative;
+}
+
+.line-wrap:not(:last-child):before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 100%;
+  border-right: solid 2px #35baf6;
+  left: 0;
+  top: 70px;
+}
+
+.contents-wrap {
+  margin: 0 0 15px 110px;
+  border: 1px solid #ddd;
+  position: relative;
+  padding: 15px;
+  white-space: normal;
+}
+
+.contents-wrap:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 0;
+  top: 0;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-right: 9px solid #ddd;
+  margin: 15px 0 0 -9px;
+}
+
+.shared-by {
+  font-size: 12px;
+  line-height: 18px;
+  margin-bottom: 10px;
+}
+
+.shared-img {
+  display: block;
+  width: 100%;
+}

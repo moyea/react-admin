@@ -1,0 +1,54 @@
+.page-lock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+  background-image: url(../../assets/images/lock-bg.webp);
+  background-size: cover;
+}
+
+.page-lock .ant-row {
+  margin-bottom: 0;
+}
+
+.card-cover {
+  background-color: #35baf6;
+  color: #fff;
+  padding: 20px;
+}
+
+.card-cover .avatar {
+  width: 64px;
+  height: 64px;
+  border: none;
+}
+
+.card-cover h4 {
+  margin-top: 11px;
+  margin-bottom: 0;
+  color: #fff;
+}
+
+.card-cover p {
+  font-size: 14px;
+  font-style: normal;
+}
+
+.page-lock .ant-card-body {
+  padding: 20px;
+  font-size: 13px;
+}
+
+.page-lock .ant-input {
+  margin-top: 20px;
+  border-radius: 0;
+}
+
+.page-lock .ant-btn {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  display: block;
+  width: 100%;
+  border-radius: 0;
+}

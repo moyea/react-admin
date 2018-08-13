@@ -38,7 +38,7 @@ class LeftSlideBar extends Component {
             <Icon type="folder-add"/>
             <span>Pages</span>
           </span>}>
-          <Menu.Item key="5">
+          <Menu.Item key="blank">
             <Icon type="file"/>
             <span><Link to="/blank">Blank Page</Link></span>
           </Menu.Item>

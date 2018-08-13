@@ -149,7 +149,24 @@ class Profile extends Component {
             </div>
           </Col>
           <Col span={12}>
-
+            <div className="timeline">
+              <div className="timeline-item">
+                <div className="profile-pic-wrap">
+                  <Avatar
+                    src="http://examples.sencha.com/extjs/6.2.0/examples/admin-dashboard/resources/images/user-profile/6.png"/>
+                  <p>30 Minutes ago</p>
+                </div>
+                <div className="line-wrap">
+                  <div className="contents-wrap">
+                    <div className="shared-by">
+                      <a href="#">Marion Williams</a> shared an image
+                    </div>
+                    <img className="shared-img"
+                      src="http://examples.sencha.com/extjs/6.2.0/examples/admin-dashboard/resources/images/img2.jpg"/>
+                  </div>
+                </div>
+              </div>
+            </div>
           </Col>
         </Row>
       </div>
