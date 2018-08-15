@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Peity from '../lib/peity';
 
 
-const types = ['line', 'bar', 'pie', 'dount'];
+const types = ['line', 'bar', 'pie', 'donut'];
 
 class ReactPeity extends Component {
 

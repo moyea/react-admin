@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import {Card, Icon, Row, Col, Progress, List, Checkbox, Input, Button} from 'antd';
 import ReactEcharts from 'echarts-for-react';
-import './dashboard.css';
 import ReactPeity from "../../comps/ReactPeity";
+import max from 'lodash.max';
+import './dashboard.css';
 
 class Dashboard extends Component {
 
   state = {
+    taskInput: '',
     todoList: [
       {id: 1000, title: 'Upgrade to SSD harddisks', checked: false},
       {id: 1001, title: 'Pay server invoice', checked: false},
@@ -56,35 +58,6 @@ class Dashboard extends Component {
           showSymbol: false
         }
       ]
-    },
-    pieChartOptions: {
-      color: ['#ffc000', '#6aa5db', '#ee929c'],
-      series: [
-        {
-          name: '访问来源',
-          type: 'pie',
-          radius: ['40%', '90%'],
-          avoidLabelOverlap: false,
-          hoverAnimation: false,
-          label: {
-            normal: {
-              show: false,
-              position: 'center'
-            }
-          },
-          labelLine: {
-            normal: {
-              show: false
-            }
-          },
-          data: [
-            {value: 20, name: 'Finance'},
-            {value: 68, name: 'Research'},
-            {value: 12, name: 'Marketing'}
-
-          ]
-        }
-      ]
     }
   };
 
@@ -97,8 +70,23 @@ class Dashboard extends Component {
     });
   }
 
+  addTask() {
+    const {todoList, taskInput} = this.state;
+    if (!taskInput) {
+      return;
+    }
+    let maxId = max(todoList.map(item => item.id));
+    this.setState({
+      todoList: [
+        ...todoList,
+        {id: maxId + 1, title: taskInput, checked: false}
+      ],
+      taskInput: ''
+    });
+  }
+
   render() {
-    const {todoList, chartOptions, pieChartOptions} = this.state;
+    const {todoList, chartOptions} = this.state;
     return (
       <div className="dashboard">
         <Row gutter={20}>
@@ -120,7 +108,8 @@ class Dashboard extends Component {
                       156 online users
                     </Col>
                     <Col span={24} style={{marginTop: '15px', height: '3px', lineHeight: '3px'}}>
-                      <Progress strokeWidth={3} strokeLinecap="square" percent={30} size="small" showInfo={false}/>
+                      <Progress default="default" strokeWidth={3} strokeLinecap="square" percent={30} size="small"
+                                showInfo={false}/>
                     </Col>
                     <Col span={24} style={{marginTop: '15px', paddingRight: '5px', paddingBottom: '5px'}}>
                       Tip: Download the analytics mobile app for real time updates on the server.
@@ -170,7 +159,7 @@ class Dashboard extends Component {
                           max: 5
                         }}/></div>}>
                   <Card.Meta
-                    title={<span><Button shape="circle" type="primary"><Icon type="inbox"/></Button>HDD Usage</span>}/>
+                    title={<span><Button htmlType="button" shape="circle" type="primary"><Icon type="inbox"/></Button>HDD Usage</span>}/>
                 </Card>
               </Col>
               <Col span={12}>
@@ -187,7 +176,7 @@ class Dashboard extends Component {
                           max: 3
                         }}/></div>}>
                   <Card.Meta
-                    title={<span><Button shape="circle" type="primary"><Icon type="inbox"/></Button>Earnings</span>}/>
+                    title={<span><Button htmlType="button" shape="circle" type="primary"><Icon type="inbox"/></Button>Earnings</span>}/>
                 </Card>
               </Col>
             </Row>
@@ -198,7 +187,7 @@ class Dashboard extends Component {
                         data={'1, 2, 3, 2, 2,4,5'} type="bar"
                         options={{width: '203', height: '67', fill: ['#f0f0f0'], min: 0, max: 5}}/></div>}>
                   <Card.Meta
-                    title={<span><Button shape="circle" type="primary"><Icon type="inbox"/></Button>Sales</span>}/>
+                    title={<span><Button htmlType="button" shape="circle" type="primary"><Icon type="inbox"/></Button>Sales</span>}/>
                 </Card>
               </Col>
               <Col span={12}>
@@ -207,7 +196,7 @@ class Dashboard extends Component {
                         data={'1, 2, 3'} type="pie"
                         options={{width: '203', height: '67'}}/></div>}>
                   <Card.Meta
-                    title={<span><Button shape="circle" type="primary"><Icon type="inbox"/></Button>Top Movie</span>}/>
+                    title={<span><Button htmlType="button" shape="circle" type="primary"><Icon type="inbox"/></Button>Top Movie</span>}/>
                 </Card>
               </Col>
             </Row>
@@ -231,13 +220,14 @@ class Dashboard extends Component {
                     title={<Checkbox checked={item.checked}
                                      value={item.id}
                                      onChange={() => this.onChange(item)}>{item.title}</Checkbox>}/>
-                </List.Item>)} style={{height: '234px'}}/>
+                </List.Item>)} style={{height: '234px', overflowY: 'scroll'}}/>
               <Row>
                 <Col span={22}>
-                  <Input placeholder="Add New Task"/>
+                  <Input placeholder="Add New Task" value={this.state.taskInput}
+                         onChange={(e) => this.setState({taskInput: e.target.value})}/>
                 </Col>
                 <Col span={2} className="text-right">
-                  <Button type="primary">
+                  <Button htmlType="button" type="primary" onClick={() => this.addTask()}>
                     <Icon type="plus"/>
                   </Button>
                 </Col>
@@ -255,20 +245,20 @@ class Dashboard extends Component {
                                 fill: ['#ffc000', '#6aa5db', '#ee929c'],
                                 radius: 50
                               }}/>
-                  {/*<ReactEcharts option={pieChartOptions} style={{height: '120px'}}/>*/}
                 </Col>
                 <Col span={17}>
                   <div className="legend-item finance">
                     <p>Finance<span className="right">20%</span></p>
-                    <Progress strokeWidth={5} percent={20} size="small" showInfo={false} status="success"/>
+                    <Progress default="default" strokeWidth={5} percent={20} size="small" showInfo={false}
+                              status="success"/>
                   </div>
                   <div className="legend-item research">
                     <p>Research<span className="right">68%</span></p>
-                    <Progress strokeWidth={5} percent={68} size="small" showInfo={false}/>
+                    <Progress default="default" strokeWidth={5} percent={68} size="small" showInfo={false}/>
                   </div>
                   <div className="legend-item marketing">
                     <p>Marketing<span className="right">12%</span></p>
-                    <Progress strokeWidth={5} percent={12} size="small" showInfo={false}/>
+                    <Progress default="default" strokeWidth={5} percent={12} size="small" showInfo={false}/>
                   </div>
                 </Col>
               </Row>
@@ -281,7 +271,6 @@ class Dashboard extends Component {
                                 fill: ['#ffc000', '#6aa5db', '#ee929c'],
                                 radius: 50
                               }}/>
-                  {/*<ReactEcharts option={pieChartOptions} style={{height: '120px'}}/>*/}
                 </Col>
                 <Col span={17}>
                   <p className="services-text">The year 2015 saw a significant change in the job market for the

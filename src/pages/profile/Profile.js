@@ -56,7 +56,7 @@ class Profile extends Component {
                 <Icon type="home" style={{marginRight: '.5em'}}/>San Jose, CA
               </p>
               <p><Icon type="dashboard" style={{marginRight: '.5em'}}/>Member since 1 years ago</p>
-              <p><Icon type="global" style={{marginRight: '.5em'}}/><a href="#">http://www.sencha-dash.com/</a></p>
+              <p><Icon type="global" style={{marginRight: '.5em'}}/><a href="/">http://www.sencha-dash.com/</a></p>
               <hr/>
               <h3><Icon type="user" style={{marginRight: '.5em'}}/>About Me</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, pariatur, recusandae. Autem commodi
@@ -159,9 +159,9 @@ class Profile extends Component {
                 <div className="line-wrap">
                   <div className="contents-wrap">
                     <div className="shared-by">
-                      <a href="#">Marion Williams</a> shared an image
+                      <a href="/">Marion Williams</a> shared an image
                     </div>
-                    <img className="shared-img"
+                    <img className="shared-img" alt=""
                       src="http://examples.sencha.com/extjs/6.2.0/examples/admin-dashboard/resources/images/img2.jpg"/>
                   </div>
                 </div>

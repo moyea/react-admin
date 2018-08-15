@@ -12,6 +12,9 @@ import Lock from "../pages/lock/Lock";
 import Login from "../pages/login/Login";
 import Register from "../pages/login/Register";
 import PasswordReset from "../pages/login/PasswordReset";
+import Widgets from "../pages/wIdgets/Widgets";
+import Forms from "../pages/forms/Forms";
+import Charts from "../pages/charts/Charts";
 
 class RightContent extends Component {
 
@@ -29,11 +32,9 @@ class RightContent extends Component {
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register}/>
         <Route path="/reset-pwd" component={PasswordReset}/>
-        {/*<Route path="/dashboard" component={Dashboard}/>*/}
-        {/*<Route path="/dashboard" component={Dashboard}/>*/}
-        {/*<Route path="/dashboard" component={Dashboard}/>*/}
-        {/*<Route path="/dashboard" component={Dashboard}/>*/}
-        {/*<Route path="/dashboard" component={Dashboard}/>*/}
+        <Route path="/widgets" component={Widgets}/>
+        <Route path="/forms" component={Forms}/>
+        <Route path="/charts" component={Charts}/>
         <Route component={NotFound}/>
       </Switch>
     );

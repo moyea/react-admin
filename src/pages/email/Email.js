@@ -98,21 +98,22 @@ class Email extends Component {
     ];
 
     return (
-      <div className="email">
+      <div className="page-wrapper page-email">
         <Row gutter={20}>
           <Col span={6}>
             <Card title={<span><Icon type="inbox"/>Email</span>} style={{marginBottom: '20px'}}>
               <List dataSource={emailList} renderItem={item => (
-                <List.Item className="Item"><Icon type={item.iconType}/>{item.label}</List.Item>)}/>
+                <List.Item><Icon type={item.iconType}/>{item.label}</List.Item>)}/>
             </Card>
             <Card title={<span><Icon type="group"/>Friends</span>}>
               <List dataSource={friendsList} renderItem={item => (
-                <List.Item className="Item">{item.name}</List.Item>)}/>
+                <List.Item>{item.name}</List.Item>)}/>
             </Card>
           </Col>
           <Col span={18}>
-            <Table bordered={true} pagination={false} size={'small'} rowSelection={rowSelection} columns={columns}
-                   dataSource={data}/>
+            <Table className="email-table" bordered={true} pagination={false}
+                   size={'small'} rowSelection={rowSelection}
+                   columns={columns} dataSource={data}/>
           </Col>
         </Row>
       </div>
