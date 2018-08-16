@@ -175,3 +175,8 @@
 .square.marketing {
   background-color: #ee929c;
 }
+
+.todo-list-body{
+  height: 224px;
+  padding-bottom: 10px;
+}

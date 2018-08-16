@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Card, Icon, Row, Col, Progress, List, Checkbox, Input, Button} from 'antd';
 import ReactEcharts from 'echarts-for-react';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 import ReactPeity from "../../comps/ReactPeity";
 import max from 'lodash.max';
 import './dashboard.css';
@@ -121,14 +122,14 @@ class Dashboard extends Component {
                     <Col span={12}>Visitors</Col>
                     <Col span={12}>
                       <ReactPeity data={'1, 2, 3, 2, 2'} type="line"
-                                  options={{width: '150', height: '20', stroke: '#8eacd4', fill: '#e7edf6'}}/>
+                                  options={{width: '80', height: '20', stroke: '#8eacd4', fill: '#e7edf6'}}/>
                     </Col>
                   </Row>
                   <Row className="mb-10">
                     <Col span={12}>Bounce Rates</Col>
                     <Col span={12}>
                       <ReactPeity data={'1, 2, 3, 2, 2'} type="line"
-                                  options={{width: '150', height: '20', stroke: '#f4b7bd', fill: '#fae4e7'}}/>
+                                  options={{width: '80', height: '20', stroke: '#f4b7bd', fill: '#fae4e7'}}/>
                     </Col>
                   </Row>
                   <Row className="mb-10">
@@ -214,13 +215,17 @@ class Dashboard extends Component {
         <Row gutter={20} style={{marginBottom: 0}}>
           <Col span={14}>
             <Card title="TODO List">
-              <List dataSource={todoList} renderItem={item => (
-                <List.Item>
-                  <List.Item.Meta
-                    title={<Checkbox checked={item.checked}
-                                     value={item.id}
-                                     onChange={() => this.onChange(item)}>{item.title}</Checkbox>}/>
-                </List.Item>)} style={{height: '234px', overflowY: 'scroll'}}/>
+              <div className="todo-list-body">
+                <PerfectScrollbar>
+                  <List dataSource={todoList} renderItem={item => (
+                    <List.Item>
+                      <List.Item.Meta
+                        title={<Checkbox checked={item.checked}
+                                         value={item.id}
+                                         onChange={() => this.onChange(item)}>{item.title}</Checkbox>}/>
+                    </List.Item>)}/>
+                </PerfectScrollbar>
+              </div>
               <Row>
                 <Col span={22}>
                   <Input placeholder="Add New Task" value={this.state.taskInput}

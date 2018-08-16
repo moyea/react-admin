@@ -1,13 +1,48 @@
+.ant-menu-inline .ant-menu-item,
+.ant-menu-vertical .ant-menu-item,
+.ant-menu-vertical .ant-menu-sub > .ant-menu-item,
+.ant-menu-sub.ant-menu-inline > .ant-menu-item,
+.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title,
+.ant-menu-vertical > .ant-menu-submenu > .ant-menu-submenu-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 64px;
+  line-height: 64px;
+  background-color: #31404e;
+  color: #adb3b8;
+}
+
+.ant-menu-vertical .ant-menu-item:not(:last-child),
+.ant-menu-inline .ant-menu-item:not(:last-child) {
+  margin-bottom: 0;
+}
+
+.ant-menu-item-active {
+  background-color: #475360;
+}
+
+.ant-menu-dark .ant-menu-item:hover {
+  background-color: #3c4a57;
+}
+
+.ant-menu.ant-menu-dark .ant-menu-item-selected {
+  background-color: #475360;
+}
+
 .ant-menu-item a {
   position: absolute;
   width: 100%;
   height: 100%;
   left: 0;
-  padding-left: 48px;
+  padding-left: 30px;
   color: inherit;
   text-decoration: none;
 }
 
-.ant-menu-sub .ant-menu-item a {
-  padding-left: 70px;
+.ant-menu-vertical.ant-menu-sub .ant-menu-item a {
+  padding-left: 1em;
+}
+
+.ant-menu-inline.ant-menu-sub .ant-menu-item a {
+  padding-left: 50px;
 }
