@@ -1,10 +1,22 @@
 import React, {Component} from 'react';
-import {Card, Col, Icon, Row, Table, List} from "antd";
+import {Card, Col, Icon, Row, Table, List, Modal, Form, Input} from "antd";
 import './email.css';
 // import differenceInMilliseconds from 'date-fns/difference_in_milliseconds';
 // import parse from 'date-fns/parse';
 
 class Email extends Component {
+
+  state = {
+    visible: false
+  };
+
+  showModal = () => {
+    this.setState({visible: true});
+  };
+
+  hideModal = () => {
+    this.setState({visible: false});
+  };
 
   render() {
 
@@ -83,7 +95,7 @@ class Email extends Component {
     };
 
     const emailList = [
-      {iconType: 'edit', label: 'Compose'},
+      {iconType: 'edit', label: 'Compose', clickHandler: this.showModal},
       {iconType: 'inbox', label: 'Inbox'},
       {iconType: 'check', label: 'Sent Mail'},
       {iconType: 'info', label: 'Spam'},
@@ -103,7 +115,7 @@ class Email extends Component {
           <Col span={6}>
             <Card title={<span><Icon type="inbox"/>Email</span>} style={{marginBottom: '20px'}}>
               <List dataSource={emailList} renderItem={item => (
-                <List.Item><Icon type={item.iconType}/>{item.label}</List.Item>)}/>
+                <List.Item onClick={item.clickHandler}><Icon type={item.iconType}/>{item.label}</List.Item>)}/>
             </Card>
             <Card title={<span><Icon type="group"/>Friends</span>}>
               <List dataSource={friendsList} renderItem={item => (
@@ -116,6 +128,30 @@ class Email extends Component {
                    columns={columns} dataSource={data}/>
           </Col>
         </Row>
+        <Modal
+          title='Modal'
+          visible={this.state.visible}
+          onOk={this.hideModal}
+          onCancel={this.hideModal}
+          okText="确认"
+          cancelText="取消">
+          <Form>
+            <Form.Item>
+              <Input placeholder="To"/>
+            </Form.Item>
+            <Form.Item>
+              <Input placeholder="Subject"/>
+            </Form.Item>
+            <Form.Item>
+              <Input.TextArea placeholder="Content">
+                
+              </Input.TextArea>
+            </Form.Item>
+          </Form>
+          {/*<p>Bla bla...</p>*/}
+          {/*<p>Bla bla...</p>*/}
+          {/*<p>Bla bla...</p>*/}
+        </Modal>
       </div>
     );
   }
