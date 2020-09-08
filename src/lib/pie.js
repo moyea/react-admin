@@ -1,21 +1,20 @@
 module.exports = {
-
   options: {
     fill: ['#ff9900', '#fff4dd', '#ffc66e'],
-    radius: 8
+    radius: 8,
   },
 
   draw(opts) {
     if (!opts.delimiter) {
-      var delimiter = this.raw.match(/[^0-9\.]/);
+      var delimiter = this.raw.match(/[^0-9.]/);
       opts.delimiter = delimiter ? delimiter[0] : ',';
     }
-    var values = this.values().map(n => n > 0 ? n : 0);
+    var values = this.values().map((n) => (n > 0 ? n : 0));
 
     if (opts.delimiter === '/') {
       var v1 = values[0];
       var v2 = values[1];
-      values = [v1, Math.max(0, v2 - v1)]
+      values = [v1, Math.max(0, v2 - v1)];
     }
 
     var i = 0;
@@ -34,10 +33,7 @@ module.exports = {
 
     var diameter = opts.radius * 2;
 
-    var $svg = this.prepare(
-      opts.width || diameter,
-      opts.height || diameter
-    );
+    var $svg = this.prepare(opts.width || diameter, opts.height || diameter);
 
     var rect = $svg.getBoundingClientRect();
     var width = rect.width;
@@ -55,14 +51,11 @@ module.exports = {
     var pi = Math.PI;
     var fill = this.fill();
 
-    var scale = this.scale = (value, radius) => {
-      var radians = value / sum * pi * 2 - pi / 2;
+    var scale = (this.scale = (value, radius) => {
+      var radians = (value / sum) * pi * 2 - pi / 2;
 
-      return [
-        radius * Math.cos(radians) + cx,
-        radius * Math.sin(radians) + cy
-      ];
-    };
+      return [radius * Math.cos(radians) + cx, radius * Math.sin(radians) + cy];
+    });
 
     var cumulative = 0;
 
@@ -81,17 +74,35 @@ module.exports = {
 
           $node = this.svgElement('path', {
             d: [
-              'M', cx, y1,
-              'A', radius, radius, 0, 1, 1, x2, y1,
-              'L', x2, y2,
-              'A', innerRadius, innerRadius, 0, 1, 0, cx, y2
-            ].join(' ')
+              'M',
+              cx,
+              y1,
+              'A',
+              radius,
+              radius,
+              0,
+              1,
+              1,
+              x2,
+              y1,
+              'L',
+              x2,
+              y2,
+              'A',
+              innerRadius,
+              innerRadius,
+              0,
+              1,
+              0,
+              cx,
+              y2,
+            ].join(' '),
           });
         } else {
           $node = this.svgElement('circle', {
             cx: cx,
             cy: cy,
-            r: radius
+            r: radius,
           });
         }
       } else {
@@ -99,7 +110,12 @@ module.exports = {
 
         var d = ['M'].concat(
           scale(cumulative, radius),
-          'A', radius, radius, 0, portion > 0.5 ? 1 : 0, 1,
+          'A',
+          radius,
+          radius,
+          0,
+          portion > 0.5 ? 1 : 0,
+          1,
           scale(cumulativePlusValue, radius),
           'L'
         );
@@ -107,7 +123,12 @@ module.exports = {
         if (innerRadius) {
           d = d.concat(
             scale(cumulativePlusValue, innerRadius),
-            'A', innerRadius, innerRadius, 0, portion > 0.5 ? 1 : 0, 0,
+            'A',
+            innerRadius,
+            innerRadius,
+            0,
+            portion > 0.5 ? 1 : 0,
+            0,
             scale(cumulative, innerRadius)
           );
         } else {
@@ -117,7 +138,7 @@ module.exports = {
         cumulative += value;
 
         $node = this.svgElement('path', {
-          d: d.join(' ')
+          d: d.join(' '),
         });
       }
 
@@ -125,5 +146,5 @@ module.exports = {
 
       $svg.appendChild($node);
     }
-  }
+  },
 };

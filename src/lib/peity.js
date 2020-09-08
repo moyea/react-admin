@@ -1,5 +1,3 @@
-'use strict';
-
 const bar = require('./bar');
 const line = require('./line');
 const pie = require('./pie');
@@ -16,7 +14,6 @@ const svgElement = (tag, attrs) => {
 // const svgSupported = ('createElementNS' in document) && svgElement('svg', {}).createSVGRect
 
 class Peity {
-
   constructor($el, type, data, options) {
     this.$el = $el;
     this.type = type;
@@ -32,7 +29,7 @@ class Peity {
     if (!this.$svg) {
       this.$el.style.display = 'none';
       this.$svg = svgElement('svg', {
-        'class': 'peity'
+        class: 'peity',
       });
       this.$el.parentNode.insertBefore(this.$svg, this.$el);
     }
@@ -44,9 +41,11 @@ class Peity {
 
   fill() {
     let f = this.options.fill;
-    return typeof f === 'function' ? f : function (_, i) {
-      return f[i % f.length];
-    }
+    return typeof f === 'function'
+      ? f
+      : function (_, i) {
+          return f[i % f.length];
+        };
   }
 
   draw() {
@@ -54,9 +53,8 @@ class Peity {
   }
 
   values() {
-    return this.raw.split(this.options.delimiter).map(val => parseFloat(val));
+    return this.raw.split(this.options.delimiter).map((val) => parseFloat(val));
   }
-
 }
 
 Peity.defaults = {};
