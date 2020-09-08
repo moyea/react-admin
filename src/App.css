@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+}
+
+:focus {
+  outline: none;
+}
+
+h1, p {
+  margin: 0;
+  padding: 0;
+}
+
+.gb-page-wrapper {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.gb-page-header {
+  flex-basis: 60px;
+  padding: 10px;
+}
+
+.gb-page-body {
+  flex: 1;
+  position: relative;
+}
+
+.ant-layout-header {
+  background-color: #fff;
+  padding-left: 0;
+}
+
+.ant-layout-sider {
+  background-color: #31404e;
+}
+
+.ps .ps__rail-y {
+  width: 6px;
+}
+
+.ps__thumb-y {
+  right: 2px;
+}
+
+.ps__rail-y:hover > .ps__thumb-y, .ps__rail-y:focus > .ps__thumb-y,
+.ps__rail-y.ps--clicking .ps__thumb-y {
+  width: 6px;
+}
+
+.ps .ps__rail-x:hover,
+.ps .ps__rail-y:hover,
+.ps .ps__rail-x:focus,
+.ps .ps__rail-y:focus,
+.ps .ps__rail-x.ps--clicking,
+.ps .ps__rail-y.ps--clicking {
+  background-color: transparent;
+}

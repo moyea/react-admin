@@ -1,0 +1,24 @@
+.page-500 {
+  position: relative;
+  height: 100%;
+  background-color: #000;
+  color: #fff;
+}
+
+.page-500 .inner {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+.page-500 h1 {
+  margin: 0;
+  font-size: 80px;
+  color: #fff;
+}
+
+.page-500 p {
+
+}
